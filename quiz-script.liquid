@@ -1,0 +1,352 @@
+<script>
+  const buttonsCheck = document.querySelectorAll("button");
+  for (const button of buttonsCheck) {
+    button.addEventListener("click", function() {
+      const inputFill = button.querySelector(".input-fill");
+      const inputBorder = button.querySelector(".input-quiz")
+      inputFill.classList.add("input-fill-selected");
+      button.style.border = '1px solid #055563';
+      button.style.background = '#eef8f9';
+      inputBorder.style.border = '1.5px solid #065563'
+    });
+  }
+
+
+
+  function changeFirstButton() {
+    const buyButtonsDiv = document.querySelector('.pdp--4');
+    const button = document.createElement('button');
+    button.classList.add('button', 'w-full', 'open-quiz-modal');
+    window.location.pathname.includes('eddie-by-giddy') && button.classList.add('find-your-size--shop-pay')
+    button.onclick = openQuizModa;
+    button.textContent = window.location.pathname.includes('eddie-by-giddy')
+      ? 'Find my size'
+      : 'GET EDDIE';
+    buyButtonsDiv.appendChild(button);
+  }
+  changeFirstButton();
+
+  function changeStyckyButton() {
+    function openModalQuiz() {
+      $('.quiz-section').show();
+      clearInterval(intervalId);
+      $('body').css('overflow', 'hidden')
+      window.scrollTo({top: 0});
+    }
+
+    const buyButtonsDiv = document.querySelector('.product-sticky-bar__info');
+    const button = document.createElement('button');
+    button.classList.add('button', 'w-full', 'open-quiz-modal', 'open-sticky');
+    button.onclick = openModalQuiz;
+    button.textContent = 'GET EDDIE';
+    buyButtonsDiv.appendChild(button);
+  }
+  changeStyckyButton();
+
+  function createAddToCartButton() {
+    const priceButtonsDiv = document.querySelector('.eddie-price-button-wrapper');
+    const buyButtonsDiv = document.querySelector('.pdp--5');
+    const duplicateBuyButtonsDiv = buyButtonsDiv.cloneNode(true);
+
+// Hide Shop Pay Button
+    const shopPayBtn = document.querySelector('.shopify-payment-button').style.display = 'none';
+
+// * Convert NodeList into array and search document with certain classes and text with 'GET EDDIE'
+// * Looking for the 'GET EDDIE' button under the buy-buttons element
+    const buttonText = Array.from(document.querySelectorAll('.button.w-full')).find(el => el.textContent === 'GET EDDIE');
+
+// * Change text of button if/when they want
+// buttonText.textContent = 'ADD TO CART';
+
+    priceButtonsDiv.appendChild(buyButtonsDiv);
+
+  }
+  createAddToCartButton();
+
+  function setDefaultVariant() {
+
+// const variantB = {{ product.variants[1].id }};
+    const variantB = 'B';
+    const variantSelector = document.querySelector('#popover-variant-dropdown-template--20088736940311__main-8488775319831-1-selected-value');
+    variantSelector.textContent = variantB;
+
+// Used for keeping the size guide open
+// const variantBActive = document.querySelector('.popover.popover--bottom-start').style.display = 'block';
+
+// Make variant 'B' selected by default
+    const getVariantB = document.querySelectorAll('.h-stack.justify-between.gap-2')[2];
+    getVariantB.ariaSelected = 'true';
+    console.log(getVariantB)
+
+// console.log(variantB)
+// console.log(variantSelector)
+  }setDefaultVariant();
+
+  function addShopPayButton() {
+
+    const buyButtonsDiv = document.querySelector('.shopify-product-form');
+    const button = document.createElement('button');
+    button.classList.add('shopify-payment-button');
+    buyButtonsDiv.appendChild(button);
+
+// const duplicateBuyButtonsDiv = buyButtonsDiv.cloneNode(true);
+// const shopPayDiv = document.querySelector('.eddie-temp-shop-pay-button');
+// shopPayDiv.appendChild(duplicateBuyButtonsDiv);
+
+// const checkoutFormId = document.querySelector('.shopify-product-form');
+
+    console.log(buyButtonsDiv)
+
+  }
+
+// addShopPayButton();
+
+
+
+  setTimeout(function() {
+    var button = $(".open-quiz-modal");
+    button.click(function() {
+      setTimeout(function() {
+        window.scrollTo(0, 0);
+        $('body').css('overflow', 'hidden');
+      }, 80);
+    });
+  }, 250);
+
+
+  const buttons = document.querySelectorAll("button");
+
+  for (const button of buttons) {
+    button.addEventListener("click", function() {
+      const inputFill = button.querySelector(".input-fill");
+      const inputBorder = button.querySelector(".input-quiz")
+      inputFill.classList.add("input-fill-selected");
+      button.style.border = '1px solid #055563';
+      button.style.background = '#eef8f9';
+      inputBorder.style.border = '1.5px solid #065563'
+    });
+  }
+
+  function flaccidOpen() {
+    document.querySelector('#method-1').style.left = '-100%'
+    document.querySelector('#flaccid-1').style.left = '0px';
+    $('.progres-one').hide();
+    $('.progres-two').show();
+    $('#prev0').hide();
+    $('#prev1').show();
+    $('body').css('overflow', 'hidden');
+
+  }
+  function erectOpen() {
+    document.querySelector('#method-1').style.left = '-100%'
+    document.querySelector('#erect-1').style.left = '0px';
+    $('.progres-one').hide();
+    $('.progres-two').show();
+    $('#prev0').hide();
+    $('#prev1').show();
+    $('body').css('overflow', 'hidden');
+
+  }
+  function condomOpen() {
+    document.querySelector('#method-1').style.left = '-100%'
+    document.querySelector('#condom-1').style.left = '0px';
+    $('.progres-one').hide();
+    $('.progres-two').show();
+    $('#prev0').hide();
+    $('#prev1').show();
+    $('body').css('overflow', 'hidden');
+
+  }
+
+  function quizNoQuiz() {
+    closeQuizSize();
+  }
+
+  function quizOne() {
+
+    $('#flaccid-1').css('left', '100%');
+    $('#erect-1').css('left', '100%');
+    $('#condom-1').css('left', '100%');
+    document.querySelector('#method-1').style.left = '0px';
+    $('.button-quiz-size')
+      .css('border', '1px solid #e9e9e9')
+      $('.input-quiz')
+      .css('border', '1px solid #e9e9e9')
+      $('.button-quiz-size')
+      .css('background', '#fff')
+      $('div')
+      .removeClass('input-fill-selected');
+    $('.progres-one').show();
+    $('.progres-two').hide();
+    $('.progres-three').hide();
+    $('#prev0').show();
+    $('#prev1').hide();
+    $('#prev2').hide();
+    enableAllButtons()
+
+// Add an event listener to the button with the class `button-quiz-size`
+    document.querySelector('#method-1 .button-quiz-size').addEventListener('click', disableOtherButtons);
+  }
+  function quizTwo() {
+    $('#prev1').show();
+    $('#prev2').hide();
+    $('#prev3').hide();
+    $('#choose-size').css('left', '100%');
+    $('.progres-one').hide();
+    $('.progres-two').show();
+    $('.progres-three').hide();
+    $('.button-quiz-size')
+      .css('border', '1px solid #e9e9e9')
+      $('.input-quiz')
+      .css('border', '1px solid #e9e9e9')
+      $('.button-quiz-size')
+      .css('background', '#fff')
+      $('div')
+      .removeClass('input-fill-selected');
+    $('#show-variant-A').hide();
+    $('#show-variant-B').hide();
+    $('#show-variant-C').hide();
+    $('#show-variant-D').hide();
+    enableAllButtons()
+    $('body,.position-quiz-open,#choose-size,#condom-1,#erect-1,#flaccid-1,#method-1,.button-quiz-size').css('background', '#FFF');
+  }
+
+  function changeInchesOne() {
+    $('.inches-container').css('left', '0px');
+    $('.inches-container').css('visibility', 'initial');
+    $('.cm-container').css('left', '100%');
+    $('.switch-btn-bg').css('left', '4px');
+    $('.inch-btn').css('color', '#000');
+    $('.cm-btn').css('color', '#fff');
+  }
+  function changeInchesTwo() {
+    $('.inches-container-2').css('left', '0px');
+    $('.inches-container-2').css('visibility', 'initial');
+    $('.cm-container-2').css('left', '100%');
+    $('.switch-btn-bg').css('left', '4px');
+    $('.inch-btn-2').css('color', '#000');
+    $('.cm-btn-2').css('color', '#fff');
+  }
+
+  function changeCmOne() {
+    $('.inches-container').css('left', '-100%');
+    $('.inches-container').css('visibility', 'hidden');
+    $('.cm-container').css('left', '0px');
+    $('.switch-btn-bg').css('left', '34px');
+    $('.inch-btn').css('color', '#fff');
+    $('.cm-btn').css('color', '#000');
+  }
+
+  function changeCmTwo() {
+    $('.inches-container-2').css('left', '-100%');
+    $('.inches-container-2').css('visibility', 'hidden');
+    $('.cm-container-2').css('left', '0px');
+    $('.switch-btn-bg').css('left', '34px');
+    $('.inch-btn-2').css('color', '#fff');
+    $('.cm-btn-2').css('color', '#000');
+  }
+
+
+  function goFinalPage(obj) {
+
+    $('body,.position-quiz-open,#choose-size,#condom-1,#erect-1,#flaccid-1,#method-1,.button-quiz-size').css('background', '#F3F7FA');
+    $('body').css('overflow', 'hidden');
+
+// $('#flaccid-1').css('left', '-100%');
+// $('#erect-1').css('left', '-100%');
+    $('#choose-size').css('left', '0px');
+    $('.progres-one').hide();
+    $('.progres-two').hide();
+    $('.progres-three').show();
+    $('#prev1').hide();
+    $('#prev2').show();
+
+
+    $(`[title="${
+      obj.id
+    }"]`).click();
+    console.log(obj.id)
+    document.querySelector('.recemend-size').textContent = obj.id
+    function findInputWithValue(value) {
+      const inputs = document.querySelectorAll('input');
+      for (let i = 0; i < inputs.length; i++) {
+        if (inputs[i].value === value) {
+          return inputs[i];
+        }
+      }
+      return null;
+    }
+
+    const input = findInputWithValue(obj.id);
+    console.log(input)
+    if (input) {
+      console.log('this is the value' + input)
+      $('#show-variant-' + obj.id).show();
+      console.log(input.value);
+    } else {
+      $('#show-variant-' + obj.id).show();
+      console.log('No input with value found ' + obj.id);
+    }
+
+  }
+
+  function closeQuizSize() {
+    $('.quiz-section').hide();
+    $('body').css('overflow', 'auto')
+    quizTwo();
+    quizOne();
+    $('body,.position-quiz-open,#choose-size,#condom-1,#erect-1,#flaccid-1,#method-1,.button-quiz-size').css('background', '#FFF');
+
+  }
+  function openQuizModa() {
+    $('.quiz-section').show();
+    clearInterval(intervalId);
+    window.scrollTo({top: 0});
+    $('body').css('overflow', 'hidden')
+  }
+
+  var intervalId = setInterval(function() {
+    $('.slider-container-pdp>.slider>.swiper-button-next').click();
+  }, 24000);
+
+
+
+  function disableButtons() {
+
+// Get all the buttons in the document.
+    var buttons = document.querySelectorAll("button");
+
+// Disable all the buttons.
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = true;
+    }
+
+// Re-enable the buttons after 2 seconds.
+    setTimeout(function() {
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = false;
+      }
+    }, 600);
+  }
+
+
+// Get all the buttons with the class "button-quiz-size".
+  var buttonsTwo = document.querySelectorAll(".button-quiz-size");
+
+
+// Add the buttonClickHandler function to the click event of all the buttons.
+  for (var i = 0; i < buttons.length; i++) {
+    buttonsTwo[i].addEventListener("click", disableButtons);
+  }
+
+  function enableAllButtons() {
+
+// Get all the buttons with the class `button-quiz-size`
+    const buttons = document.querySelectorAll('.button-quiz-size');
+
+// Loop through the buttons and enable them all
+    for (const button of buttons) {
+      button.disabled = false;
+    }
+  }
+</script>

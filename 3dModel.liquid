@@ -1,0 +1,263 @@
+<style>
+  @media(max-width:1000px) {
+    .scroll-area {
+      overflow: auto hidden;
+    }
+  }
+  body {
+    overflow-x: hidden;
+  }
+
+  @media(min-width:1000px) {
+    .product-gallery__media {
+      height: 730px !important;
+    }
+  }
+</style>
+
+<script>
+  class Simple3DViewer {
+    constructor(container, img, gltf, width, height, color = 0xffffff) {
+      this.scene = new THREE.Scene();
+      this.scene.background = new THREE.Color(color);
+
+      this.camera = new THREE.PerspectiveCamera(45, width / height, 1, 800);
+      this.camera.position.set(0, 0, 5);
+
+      this.renderer = new THREE.WebGLRenderer({antialias: true});
+      this.renderer.setSize(width, height);
+
+      this.domElement = document.getElementById(container);
+      this.domElement.appendChild(this.renderer.domElement);
+      this.domElement.style.cursor = 'col-resize';
+
+      this.domElement.addEventListener('mousemove', this.onMouseMove.bind(this), false);
+      this.domElement.addEventListener('mousedown', this.onMouseDown.bind(this), false);
+      this.domElement.addEventListener('mouseup', this.onMouseUp.bind(this), false);
+
+// object rotation with mouse
+      this.mouseX = 0;
+      this.mouseY = 0;
+      this.targetRotationX = 0;
+      this.targetRotationY = 0;
+      this.rotationSpeed = 0.2;
+      this.mouseDown = false;
+      this.autoRotate = true;
+
+// Camera Rotation Control
+      this.controls = new THREE.OrbitControls(this.camera);
+      this.controls.rotateSpeed = 3;
+      this.controls.enableZoom = false;
+      this.controls.enableDamping = true;
+      this.controls.dampingFactor = 0.04;
+      this.controls.autoRotate = true;
+
+      this.img = img;
+      this.gltf = gltf;
+      this.setupScene();
+      this.render();
+
+      this.domElement.addEventListener("touchstart", function(event) {
+        event.preventDefault();
+        event.bubbles = false;
+      }, false);
+    }
+
+    setRotateSpeed(newSpeed) {
+      this.controls.rotateSpeed = newSpeed;
+    }
+
+    setAutoRotate(v) {
+      this.autoRotate = v;
+      this.controls.autoRotate = v;
+    }
+
+    setupScene() {
+
+// GLTF Loader to Load and manipulate 3D Models
+      var loader = new THREE.GLTFLoader();
+
+      loader.crossOrigin = true;
+
+      loader.load(this.gltf, (data) => {
+        var object = data.scene;
+        object.position.set(0, 0, 0);
+        object
+          .scale
+          .set(50, 50, 50)
+          this
+          .scene
+          .add(object);
+      });
+
+/* /////////////////////////////////////////////// */
+
+// Point Lights
+      var light = new THREE.PointLight(0xf7ffff, 0.3);
+      light.position.set(5, 0, 5);
+      this.scene.add(light);
+
+      var lightb = new THREE.PointLight(0xf7ffff, 0.15);
+      lightb.position.set(0, 5, -5);
+      this.scene.add(lightb);
+
+      var lightc = new THREE.PointLight(0xf7ffff, 2);
+      lightc.position.set(-5, 5, 0);
+
+// this.scene.add( lightc );
+
+      var lightd = new THREE.PointLight(0xf7ffff, 2);
+      lightd.position.set(5, 5, 0);
+
+// this.scene.add( lightd );
+
+      const ambLight = new THREE.AmbientLight(0xffffff, 0.75); // soft white light
+      this.scene.add(ambLight);
+
+/* ////////////////////////////////////////// */
+    }
+
+    render() {
+      requestAnimationFrame(() => {
+        this.render();
+      });
+      this.renderer.render(this.scene, this.camera); // Render Scene and Camera
+      this.controls.update(); // For Orbit Controller
+
+      if (!this.mouseDown && !this.controls.autoRotate) {
+        this.scene.rotation.x = this.targetRotationY;
+        this.scene.rotation.y = this.targetRotationX;
+        this.targetRotationX += (this.mouseX - this.targetRotationX) * this.rotationSpeed;
+        this.targetRotationY += (this.mouseY - this.targetRotationY) * this.rotationSpeed;
+      }
+    }
+
+    setBGColor(hex) {
+      this.scene.background = new THREE.Color(hex);
+    }
+
+    onMouseMove(event) {
+      this.mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+      this.mouseY = (event.clientY / window.innerHeight) * 2 - 1;
+    }
+
+    onMouseDown(event) {
+      this.mouseDown = true;
+      this.controls.autoRotate = false;
+      if (this.mouseDownTimeout) {
+        clearTimeout(this.mouseDownTimeout);
+      }
+    }
+
+    onMouseUp(event) {
+      if (this.mouseDownTimeout) {
+        clearTimeout(this.mouseDownTimeout);
+      }
+      this.mouseDownTimeout = setTimeout(() => {
+        this.mouseDown = false;
+        this.controls.autoRotate = this.autoRotate;
+        console.log("MOUSE DOWN FALSE");
+        this.controls.reset();
+      }, 3000); // Delay of 3000 milliseconds (3 seconds)
+    }
+
+  }
+</script>
+
+<script>
+
+  const buttonZero = document.querySelector(".button-check-0");
+  buttonZero.addEventListener("click", () => {
+    setTimeout(function() {
+
+// $('.scroll-area').css('overflow', 'hidden')
+    }, 150);
+
+  });
+  const buttonOne = document.querySelector(".button-check-1");
+  buttonOne.addEventListener("click", () => {
+    setTimeout(function() {
+
+// $('.scroll-area').css('overflow', 'auto hidden')
+    }, 100);
+
+    console.log('overflow auto')
+  });
+
+  let imgOne = document.querySelectorAll('.product-gallery__media')[0]
+  imgOne.innerHTML = ` <div class="container-iframe">
+      <div class='responsive-iframe'>
+        <div class="container-body">
+            <div id="eddie"></div>
+          </div>
+      </div>
+   </div>`
+
+
+  const productViewEddie = new Simple3DViewer("eddie", "eddie.png", "https://cdn.shopify.com/s/files/1/0757/0564/7383/files/Eddie-Band-Rig_2.gltf?v=1692379275", 739, 789);
+
+  productViewEddie.setBGColor(0xffffff);
+  productViewEddie.setRotateSpeed(20);
+
+// Get the div with class container-iframe
+  const containerIframe = document.querySelector('#eddie');
+
+// Set the body overflow-x and overflow-y to hidden when the mouse enters the div
+  containerIframe.addEventListener('mouseenter', () => {
+    document.body.style.overflowX = 'hidden';
+    document.body.style.overflowY = 'hidden';
+  });
+
+// Set the body overflow-x and overflow-y to auto when the mouse leaves the div
+  containerIframe.addEventListener('mouseleave', () => {
+    document.body.style.overflowX = 'auto';
+    document.body.style.overflowY = 'auto';
+  });
+
+// Set the initial body overflow to auto
+// document.body.style.overflow = "auto";
+
+// On click of the div with class product-gallery, set the body overflow to hidden
+  const productGallery = document.querySelector("#eddie");
+  productGallery.addEventListener("click", function() {
+    document.body.style.overflow = "hidden";
+  });
+
+// On click of the div with class product-gallery, set the body overflow to hidden
+  const productInfo = document.querySelector(".product-info__block-list");
+  productInfo.addEventListener("click", function() {
+    document.body.style.overflow = "auto";
+  });
+
+  productInfo.addEventListener('mouseenter', function() {
+    document.body.style.overflow = "auto";
+  });
+
+
+  productInfo.addEventListener("scroll", function() {
+    document.body.style.overflow = "auto";
+  });
+
+
+
+// On scroll of the body, set the body overflow to auto if the div with class product-gallery is not in the viewport check
+  window.addEventListener("scroll", function() {
+    if (!document.querySelector("#eddie").isVisible()) {
+      document.body.style.overflow = "auto";
+    }
+  });
+
+
+  const productInfoBlockList = document.querySelector('.product-info__block-list');
+
+  const onHover = () => {
+    document.body.style.overflow = 'auto';
+  };
+
+  const onLeave = () => {
+    document.body.style.overflow = 'auto';
+  };
+
+  productInfoBlockList.addEventListener('mouseover', onHover);
+  productInfoBlockList.addEventListener('mouseleave', onLeave);
+</script>

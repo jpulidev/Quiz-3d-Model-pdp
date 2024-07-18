@@ -1,0 +1,37 @@
+{% if product.handle contains section.settings.product_select %}
+  {% if section.settings.model %}
+    {% include '3dModel' %}
+  {% endif %}
+{% endif %}
+
+
+
+{% schema %}
+  {
+    "name": "3d Model Widget",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "model",
+        "label": "3d model widget",
+        "default": true,
+        "info": "3D Model PDP"
+      }, {
+        "type": "product",
+        "id": "product_select",
+        "info": "3D Model Product",
+        "label": "Select Product - 3d model widget"
+      }
+    ],
+
+    "presets": [
+      {
+        "name": "3d Model Widget"
+      }
+    ]
+  }
+{% endschema %}

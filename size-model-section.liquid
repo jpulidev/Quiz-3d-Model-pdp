@@ -1,0 +1,931 @@
+<div class="quiz-section">
+
+  <div class="position-quiz-open">
+    <div class="quiz-container-grid">
+      {% if section.settings.quiz %}
+        {% if section.settings.quiz-enable contains 'true' %}
+          <style>
+            .variant-picker__option-values {
+              display: none;
+            }
+            .variant-picker__option-values--shop-pay {
+              display: flex !important;
+            }
+            
+            .buy-buttons > .button {
+              display: none;
+            }         
+            .buy-buttons > .modal-btn {
+              display: block !important;
+            }
+            .product-sticky-bar__info > .open-quiz-modal {
+              float: right;
+              position: relative;
+              left: 22px;
+              top: -48px;
+              width: 256px;
+            }
+            .product-sticky-bar__info {
+              height: 53px;
+            }
+            .pdp--4 {
+              margin-top: -51px !important;
+              margin-bottom: -41px !important;
+            }
+            .product-info__block-item--shop-pay.pdp--4 {
+              margin-top: 0 !important;
+              margin-bottom: 32px !important;
+              text-wrap: nowrap;
+            }
+            .pdp--7 > img {
+              margin: 0 auto;
+            }
+            form>.rc-container-wrapper {
+                display:none;
+            }
+          </style>
+          {% include 'size-quiz' %}
+          {% include 'size-progress' %}
+          <div class="container-questions-grid">
+            {% for block in section.blocks %}
+              {% if block.type == 'method' %}
+                <div id="method-1">
+                  <h2 class="quiz-title">
+                    {{ block.settings.title }}
+                  </h2>
+
+                  <button
+                    class="button-quiz-size"
+                    id="flacid-button"
+                    onclick="flaccidOpen()">
+                    <div class="button-container">
+                      <div class="input-quiz" id="flacid-quiz-button">
+                        <div class="input-fill"></div>
+                      </div>
+                    </div>
+                    <div class="quiz-btn-description">
+                      <h3>{{ block.settings.flacid-option }}</h3>
+                      <p>{{ block.settings.flacid-option-description }}</p>
+                    </div>
+                  </button>
+
+                  <button
+                    class="button-quiz-size"
+                    id="erect-button"
+                    onclick="erectOpen()">
+                    <div class="button-container">
+                      <div class="input-quiz" id="erect-quiz-button">
+                        <div class="input-fill"></div>
+                      </div>
+                    </div>
+                    <div class="quiz-btn-description">
+                      <h3>{{ block.settings.erect-option }}</h3>
+                      <p>{{ block.settings.erect-option-description }}</p>
+                    </div>
+                  </button>
+
+                  <button
+                    class="button-quiz-size"
+                    id="condom-button"
+                    onclick="condomOpen()">
+                    <div class="button-container">
+                      <div class="input-quiz" id="condom-quiz-button">
+                        <div class="input-fill"></div>
+                      </div>
+                    </div>
+                    <div class="quiz-btn-description">
+                      <h3>{{ block.settings.condom-option }}</h3>
+                      <p>{{ block.settings.condom-option-description }}</p>
+                    </div>
+                  </button>
+
+                </div>
+              {% endif %}
+              {% if block.type == 'flaccid' %}
+                <div id="flaccid-1">
+                  <h2 class="quiz-title">
+                    {{ block.settings.title }}
+                  </h2>
+                  <p class="quiz-subtitle">
+                    {{ block.settings.subtitle }}
+                  </p>
+                  <div class="switch-container-2">
+                    <div class="switch-btn">
+                      <div class="switch-btn-bg"></div>
+                      <button class="inch-btn inch-btn-2" onclick="changeInchesTwo()">IN</button>
+                      <button class="cm-btn cm-btn-2" onclick="changeCmTwo()">CM</button>
+                    </div>
+                  </div>
+                  <div class="inches-container-2">
+                    <button
+                      class="button-quiz-size"
+                      id="A"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-A">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-A }}</h3>
+
+                      </div>
+                    </button>
+                    <button
+                      class="button-quiz-size"
+                      id="B"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-B">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-B }}</h3>
+
+                      </div>
+                    </button>
+                    <button
+                      class="button-quiz-size"
+                      id="C"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-C">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-C }}</h3>
+
+                      </div>
+                    </button>
+                    <button
+                      class="button-quiz-size"
+                      id="D"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-D">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-D }}</h3>
+
+                      </div>
+                    </button>
+                  </div>
+
+                  <div class="cm-container-2">
+                    <button
+                      class="button-quiz-size"
+                      id="A"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-A">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-A-cm }}</h3>
+
+                      </div>
+                    </button>
+                    <button
+                      class="button-quiz-size"
+                      id="B"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-B">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-B-cm }}</h3>
+
+                      </div>
+                    </button>
+                    <button
+                      class="button-quiz-size"
+                      id="C"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-C">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-C-cm }}</h3>
+
+                      </div>
+                    </button>
+                    <button
+                      class="button-quiz-size"
+                      id="D"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-D">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-D-cm }}</h3>
+                      </div>
+                    </button>
+                  </div>
+
+                </div>
+              {% endif %}
+              {% if block.type == 'erect' %}
+                <div id="erect-1">
+                  <h2 class="quiz-title">
+                    {{ block.settings.title }}
+                  </h2>
+                  <p class="quiz-subtitle">
+                    {{ block.settings.subtitle }}
+                  </p>
+                  <div class="switch-container">
+                    <div class="switch-btn">
+                      <div class="switch-btn-bg"></div>
+                      <button class="inch-btn" onclick="changeInchesOne()">IN</button>
+                      <button class="cm-btn" onclick="changeCmOne()">CM</button>
+                    </div>
+                  </div>
+                  <div class="inches-container">
+                    <button
+                      class="button-quiz-size"
+                      id="A"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-A }}</h3>
+
+                      </div>
+                    </button>
+                    <button
+                      class="button-quiz-size"
+                      id="B"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-B">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-B }}</h3>
+
+                      </div>
+                    </button>
+                    <button
+                      class="button-quiz-size"
+                      id="C"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-C">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-C }}</h3>
+
+                      </div>
+                    </button>
+                    <button
+                      class="button-quiz-size"
+                      id="D"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-D">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-D }}</h3>
+
+                      </div>
+                    </button>
+                  </div>
+
+                  <div class="cm-container">
+                    <button
+                      class="button-quiz-size"
+                      id="A"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-A">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-A-cm }}</h3>
+
+                      </div>
+                    </button>
+                    <button
+                      class="button-quiz-size"
+                      id="B"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-B">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-B-cm }}</h3>
+
+                      </div>
+                    </button>
+                    <button
+                      class="button-quiz-size"
+                      id="C"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-C">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-C-cm }}</h3>
+
+                      </div>
+                    </button>
+                    <button
+                      class="button-quiz-size"
+                      id="D"
+                      onclick="goFinalPage(this)">
+                      <div class="button-container">
+                        <div class="input-quiz" id="flaccid-D">
+                          <div class="input-fill"></div>
+                        </div>
+                      </div>
+                      <div class="quiz-btn-description">
+                        <h3 class="in-show">{{ block.settings.option-D-cm }}</h3>
+
+                      </div>
+                    </button>
+                  </div>
+
+
+
+                </div>
+              {% endif %}
+              {% if block.type == 'condom' %}
+                <div id="condom-1">
+                  <h2 class="quiz-title">
+                    {{ block.settings.title }}
+                  </h2>
+
+                  <button
+                    class="button-quiz-size"
+                    id="A"
+                    onclick="goFinalPage(this)">
+                    <div class="button-container">
+                      <div class="input-quiz" id="flacid-quiz-button">
+                        <div class="input-fill"></div>
+                      </div>
+                    </div>
+                    <div class="quiz-btn-description">
+                      <h3>{{ block.settings.flacid-option }}</h3>
+                      <p>{{ block.settings.flacid-option-description }}</p>
+                    </div>
+                  </button>
+
+                  <button
+                    class="button-quiz-size"
+                    id="B"
+                    onclick="goFinalPage(this)">
+                    <div class="button-container">
+                      <div class="input-quiz" id="erect-quiz-button">
+                        <div class="input-fill"></div>
+                      </div>
+                    </div>
+                    <div class="quiz-btn-description">
+                      <h3>{{ block.settings.erect-option }}</h3>
+                      <p>{{ block.settings.erect-option-description }}</p>
+                    </div>
+                  </button>
+
+                  <button
+                    class="button-quiz-size"
+                    id="C"
+                    onclick="goFinalPage(this)">
+                    <div class="button-container">
+                      <div class="input-quiz" id="condom-quiz-button">
+                        <div class="input-fill"></div>
+                      </div>
+                    </div>
+                    <div class="quiz-btn-description">
+                      <h3>{{ block.settings.condom-option }}</h3>
+                      <p>{{ block.settings.condom-option-description }}</p>
+                    </div>
+                  </button>
+
+                  <button
+                    class="button-quiz-size"
+                    id="D"
+                    onclick="goFinalPage(this)">
+                    <div class="button-container">
+                      <div class="input-quiz" id="condom-quiz-button">
+                        <div class="input-fill"></div>
+                      </div>
+                    </div>
+                    <div class="quiz-btn-description">
+                      <h3>{{ block.settings.large-option }}</h3>
+                      <p>{{ block.settings.large-option-description }}</p>
+                    </div>
+                  </button>
+
+
+                </div>
+              {% endif %}
+              {% if block.type == 'size' %}
+                <div id="choose-size">
+                  <div class="image-quiz">
+                    <img
+                      src="{{ block.settings.eddie-img | img_url: '411x419' }}"
+                      alt="image-eddie-pdp"
+                      class="eddie-image-quiz">
+                  </div>
+
+                  <h2 class="quiz-title-final">
+                    {{ block.settings.title }}
+                  </h2>
+                  <h1 class="recemend-size">B</h1>
+                  <p class="description-quiz-recomend">
+                    {{ block.settings.description }}
+                  </p>
+
+                  {% if product.handle == 'eddie-by-giddy' %}
+                  {% for variant in product.variants %}
+                    {% if variant.available %}
+                    
+                      <div  id="show-variant-{{variant.title}}">
+                        <form method="post" action="/cart/add" id="product-form-8393259647255-template--19939687825687__main" accept-charset="UTF-8" class="shopify-product-form" enctype="multipart/form-data" is="product-form">
+                        <div class="rc-container-wrapper rc_container_wrapper" data-widget-container-wrapper="" data-v-app="" style="display: none;">
+                          <div class="rc-container rc_container" data-widget-container="">
+                              <div class="rc-widget rc_widget" data-widget="">
+                                  <div class="rc-template" data-template="">
+                                      <div class="rc-template__legacy-radio" data-template-legacy-radio="">
+                                          <div class="rc-radio rc-option__subsave rc-option rc_widget__option rc_widget__option--subsave rc-legacy-radio" data-option-subsave=""><!--v-if--><div class="rc-selling-plans rc_widget__option__plans" data-plans-container="" data-v-3a84e3a8="" style="display: block;"><label class="rc-selling-plans__label" for="selling_plan_8393259647255" data-plans-label="" data-v-3a84e3a8="">Delivery every 4 Months</label><select id="selling_plan_8393259647255" class="rc_widget__option__plans__dropdown rc-selling-plans__dropdown" name="selling_plan" data-plans-dropdown="" data-v-3a84e3a8="" style="display: none;"><option data-plan-option="Delivery every 4 Months" value="689166090519" data-v-3a84e3a8="">Delivery every 4 Months</option></select></div></div></div><!--v-if--><!--v-if--><!--v-if--></div></div><div class="rc_popup" data-v-7bc675e0=""><div class="rc_popup__hover" data-v-7bc675e0="" style="--backgroundColor: #191D48;"><button class="rc_popup_label_wrapper row" aria-label="Subscription details" aria-expanded="false" aria-controls="rc_popup__block__content" data-v-7bc675e0=""><svg width="16" height="16" viewBox="0 0 16 16" fill="#191D48" xmlns="http://www.w3.org/2000/svg" class="reload-icon" data-test-popup-icon="" data-v-7bc675e0=""><path fill="currentColor" d="M13.64 2.35C12.19 0.9 10.2 0 7.99 0C3.57 0 0 3.58 0 8C0 12.42 3.57 16 7.99 16C11.72 16 14.83 13.45 15.72 10H13.64C12.82 12.33 10.6 14 7.99 14C4.68 14 1.99 11.31 1.99 8C1.99 4.69 4.68 2 7.99 2C9.65 2 11.13 2.69 12.21 3.78L8.99 7H15.99V0L13.64 2.35Z"></path></svg><span class="rc_popup__label" data-v-7bc675e0="">Subscription details</span></button><div class="rc_popup__block" data-v-7bc675e0="" style="--backgroundColor: #191D48; background-color: rgb(25, 29, 72); color: rgb(255, 255, 255);"><div class="rc_popup__block__content" data-v-7bc675e0=""><div class="rc_popup__how_it_works" data-v-7bc675e0=""><strong>How subscriptions work</strong><br>Products are automatically delivered on your schedule. No obligation, modify or cancel your subscription anytime.</div><a class="rc_popup__learn_more" href="http://rechargepayments.com/subscribe-with-recharge" target="_blank" rel="noopener noreferrer" data-v-7bc675e0="" style="color: rgb(255, 255, 255);">Learn more...</a></div><div class="rc_popup__block__footer" data-v-7bc675e0=""><a href="http://rechargepayments.com/subscribe-with-recharge" target="_blank" rel="noopener noreferrer" class="tooltip-badge" data-v-7bc675e0=""><span class="powered-by" data-v-7bc675e0="">Powered by</span><svg viewBox="100 0 270 74" fill="none" xmlns="http://www.w3.org/2000/svg" data-test-recharge-logo="" data-v-7bc675e0=""><path d="M100.034 21.1209H113.048C113.658 21.1209 114.065 21.4598 113.929 22.1376L113.184 26.34C115.759 22.6121 119.487 20.3753 123.283 20.3753C125.181 20.3753 127.214 21.1209 128.299 22.1376C128.909 22.7476 128.909 23.0865 128.502 23.6966L124.707 29.0513C124.232 29.7291 123.893 29.6613 123.148 29.3224C122.402 28.9835 121.453 28.7124 120.436 28.7124C115.895 28.7124 112.099 31.6947 110.337 40.7096L107.693 54.3336C107.49 55.2147 106.812 55.4181 106.473 55.4181H99.5598C99.0175 55.4181 98.543 54.9436 98.6786 54.3336L103.83 28.1701L99.492 22.0698C99.1531 21.5954 99.4242 21.1209 100.034 21.1209Z" fill="currentColor"></path><path d="M124.977 37.9984C126.74 27.3567 134.534 20.3753 144.701 20.3753C155.004 20.3753 159.884 28.5768 158.393 37.5239C158.054 39.8284 157.241 41.6585 155.343 41.6585H133.382C133.585 46.6743 137.042 49.0467 141.651 49.0467C144.701 49.0467 147.548 47.8944 149.717 46.471C150.26 46.0643 150.87 45.861 151.276 46.471L153.784 50.4023C154.191 51.0123 153.987 51.419 153.377 51.9612C150.124 54.9436 144.837 56.2992 140.025 56.2992C129.18 56.2992 123.283 48.3011 124.977 37.9984ZM150.531 35.6938C150.87 30.3391 147.209 28.1023 143.685 28.1023C139.076 28.1023 135.483 31.2203 134.128 35.6938H150.531Z" fill="currentColor"></path><path d="M191.199 54.6045L199.062 14.4782L195.198 9.3268C194.995 8.98789 195.266 8.51343 195.741 8.51343H207.806C208.483 8.51343 208.822 8.92011 208.687 9.53014L205.162 27.221C207.873 23.1541 211.94 20.3751 216.685 20.3751C224.276 20.3751 228.614 26.8821 226.988 34.8802L223.056 54.3334C222.921 55.079 222.311 55.4179 221.836 55.4179H214.719C214.041 55.4179 213.703 55.0112 213.838 54.3334L217.363 36.7781C218.312 32.0334 217.024 29.1188 214.109 29.1188C208.687 29.1188 204.417 35.2191 202.586 43.8273L200.282 54.6045C200.214 55.0112 199.875 55.4179 199.401 55.4179H191.877C191.47 55.4179 191.131 55.0112 191.199 54.6045Z" fill="currentColor"></path><path d="M229.428 38.4051C231.19 27.0856 239.188 20.3753 248.542 20.3753C253.49 20.3753 257.353 22.6121 258.845 26.34L259.658 22.2054C259.794 21.4598 260.336 21.1209 260.946 21.1209H267.521C268.266 21.1209 268.537 21.5954 268.402 22.2054L262.098 54.4014C261.963 55.0114 261.556 55.4181 260.81 55.4181H254.168C253.558 55.4181 253.219 55.0792 253.354 54.4014L253.964 51.0801C250.847 54.6047 246.983 56.367 242.781 56.367C233.223 56.367 227.869 48.4366 229.428 38.4051ZM245.492 48.1655C250.982 48.1655 255.049 43.5564 255.862 38.1339C256.676 32.7114 253.761 28.6446 248.678 28.6446C243.255 28.6446 239.324 33.0503 238.443 38.2017C237.561 43.4208 240.205 48.1655 245.492 48.1655Z" fill="currentColor"></path><path d="M266.369 54.3336L272.74 22.002C272.876 21.4598 273.147 21.1209 273.554 21.1209H280.738C281.349 21.1209 281.755 21.4598 281.62 22.1376L280.874 26.34C283.45 22.6121 287.178 20.3753 290.973 20.3753C292.871 20.3753 294.905 21.1209 295.989 22.1376C296.599 22.7476 296.599 23.0865 296.193 23.6966L292.397 29.0513C291.922 29.7291 291.583 29.6613 290.838 29.3224C290.092 28.9835 289.143 28.7124 288.127 28.7124C283.585 28.7124 279.79 31.6947 278.027 40.7096L275.384 54.3336C275.18 55.2147 274.503 55.4181 274.164 55.4181H267.25C266.708 55.4181 266.233 54.9436 266.369 54.3336Z" fill="currentColor"></path><path d="M290.024 65.2463C289.618 64.9074 289.618 64.3652 289.889 63.8907L293.074 58.8749C293.413 58.3327 293.956 58.1971 294.362 58.536C297.48 60.5016 300.53 61.7217 304.258 61.7217C310.765 61.7217 316.188 59.0783 318.086 50.3345C314.493 53.7236 311.172 55.3503 306.156 55.3503C296.328 55.3503 291.177 47.081 292.803 37.8628C294.633 27.4245 302.428 20.3753 312.257 20.3753C317.679 20.3753 321.407 23.4254 322.559 25.9333L323.373 22.2054C323.508 21.4598 323.983 21.1209 324.525 21.1209H331.167C331.845 21.1209 332.184 21.5276 332.049 22.2054L326.491 50.5378C324.05 62.874 315.51 69.3132 303.919 69.3132C299.039 69.3132 293.549 68.0931 290.024 65.2463ZM308.732 47.4199C314.222 47.4199 318.289 43.0142 319.102 37.795C319.916 32.5759 317.001 28.6446 311.918 28.6446C306.495 28.6446 302.564 32.9148 301.683 37.8628C300.802 42.8786 303.445 47.4199 308.732 47.4199Z" fill="currentColor"></path><path d="M332.32 37.9984C334.082 27.3567 341.877 20.3753 352.044 20.3753C362.347 20.3753 367.227 28.5768 365.736 37.5239C365.397 39.8284 364.584 41.6585 362.686 41.6585H340.725C340.928 46.6743 344.385 49.0467 348.994 49.0467C352.044 49.0467 354.891 47.8944 357.06 46.471C357.602 46.0643 358.212 45.861 358.619 46.471L361.127 50.4023C361.533 51.0123 361.33 51.419 360.72 51.9612C357.467 54.9436 352.18 56.2992 347.367 56.2992C336.522 56.2992 330.625 48.3011 332.32 37.9984ZM357.873 35.6938C358.212 30.3391 354.552 28.1023 351.027 28.1023C346.418 28.1023 342.826 31.2203 341.47 35.6938H357.873Z" fill="currentColor"></path><path d="M176.04 56.367C180.581 56.367 185.054 55.0792 189.121 51.2157C189.731 50.6734 189.799 49.9278 189.392 49.5211L185.664 45.3865C185.326 44.9798 184.783 44.9798 184.309 45.3187C182.75 46.471 180.242 47.8266 177.26 47.8266C171.905 47.8266 168.923 43.6242 169.6 38.3373C170.278 33.1181 174.413 28.9157 179.632 28.9157C182.479 28.9157 184.309 29.9324 186.342 31.9659C186.885 32.5081 187.223 32.5081 187.833 32.0336L192.646 27.899C193.12 27.4923 193.256 27.0178 192.917 26.4756C190.002 22.341 185.461 20.3753 180.445 20.3753C170.346 20.3753 162.144 27.899 160.789 37.8628C159.298 48.7078 166.482 56.367 176.04 56.367Z" fill="currentColor"></path></svg></a></div></div></div></div></div></div>
+                                          
+                                          
+                                          <input type="hidden" name="form_type" value="product"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="id" value="{{variant.id}}">
+  
+      <div class="v-stack gap-4"><buy-buttons class="buy-buttons dinamic-1 " template="eddie-template" form="product-form-8393259647255-template--19939687825687__main">
+  <button type="submit" class="button w-full" style="display:block!important;width: 100%;">GET EDDIE</button>
+    </buy-buttons>
+      </div></form>
+                      </div>
+                   
+                    {% endif %}
+                  {% endfor %}
+
+                  {%else%}
+                  {% for variant in product.variants %}
+                    {% if variant.available %}
+                    
+                      <div  id="show-variant-{{variant.title}}">
+                        <form method="post" action="/cart/add" id="product-form-{{product.id}}-template--19939687825687__main" accept-charset="UTF-8" class="shopify-product-form" enctype="multipart/form-data" is="product-form">
+                        <div class="rc-container-wrapper rc_container_wrapper" data-widget-container-wrapper="" data-v-app="" style="display: none;">
+                          <div class="rc-container rc_container" data-widget-container="">
+                              <div class="rc-widget rc_widget" data-widget="">
+                                  <div class="rc-template" data-template="">
+                                      <div class="rc-template__legacy-radio" data-template-legacy-radio="">
+                                          <div class="rc-radio rc-option__subsave rc-option rc_widget__option rc_widget__option--subsave rc-legacy-radio" data-option-subsave="">
+                                            <!--v-if-->
+                                            <div class="rc-selling-plans rc_widget__option__plans" data-plans-container="" data-v-3a84e3a8="" style="display: block;">
+                                              <label class="rc-selling-plans__label" for="selling_plan_{{product.id}}" data-plans-label="" data-v-3a84e3a8="">Delivery every 4 Months</label>
+                                              <select id="selling_plan_{{product.id}}" class="rc_widget__option__plans__dropdown rc-selling-plans__dropdown" name="selling_plan" data-plans-dropdown="" data-v-3a84e3a8="" style="display: none;">
+                                                <option data-plan-option="Delivery every 4 Months" value="{{product.selling_plan_groups[0].selling_plans[0].id}}" data-v-3a84e3a8="">Delivery every 4 Months</option>
+                                                </select>
+                                                </div>
+                                                </div>
+                                                </div>
+                                                <!--v-if--><!--v-if--><!--v-if-->
+                                                </div>
+                                                </div>
+                                                <div class="rc_popup" data-v-7bc675e0="">
+                                                  <div class="rc_popup__hover" data-v-7bc675e0="" style="--backgroundColor: #191D48;">
+                                                    <button class="rc_popup_label_wrapper row" aria-label="Subscription details" aria-expanded="false" aria-controls="rc_popup__block__content" data-v-7bc675e0="">
+                                                      <svg width="16" height="16" viewBox="0 0 16 16" fill="#191D48" xmlns="http://www.w3.org/2000/svg" class="reload-icon" data-test-popup-icon="" data-v-7bc675e0="">
+                                                      <path fill="currentColor" d="M13.64 2.35C12.19 0.9 10.2 0 7.99 0C3.57 0 0 3.58 0 8C0 12.42 3.57 16 7.99 16C11.72 16 14.83 13.45 15.72 10H13.64C12.82 12.33 10.6 14 7.99 14C4.68 14 1.99 11.31 1.99 8C1.99 4.69 4.68 2 7.99 2C9.65 2 11.13 2.69 12.21 3.78L8.99 7H15.99V0L13.64 2.35Z"></path>
+                                                      </svg>
+                                                      <span class="rc_popup__label" data-v-7bc675e0="">Subscription details</span></button><div class="rc_popup__block" data-v-7bc675e0="" style="--backgroundColor: #191D48; background-color: rgb(25, 29, 72); color: rgb(255, 255, 255);"><div class="rc_popup__block__content" data-v-7bc675e0=""><div class="rc_popup__how_it_works" data-v-7bc675e0=""><strong>How subscriptions work</strong><br>Products are automatically delivered on your schedule. No obligation, modify or cancel your subscription anytime.</div><a class="rc_popup__learn_more" href="http://rechargepayments.com/subscribe-with-recharge" target="_blank" rel="noopener noreferrer" data-v-7bc675e0="" style="color: rgb(255, 255, 255);">Learn more...</a></div><div class="rc_popup__block__footer" data-v-7bc675e0=""><a href="http://rechargepayments.com/subscribe-with-recharge" target="_blank" rel="noopener noreferrer" class="tooltip-badge" data-v-7bc675e0=""><span class="powered-by" data-v-7bc675e0="">Powered by</span><svg viewBox="100 0 270 74" fill="none" xmlns="http://www.w3.org/2000/svg" data-test-recharge-logo="" data-v-7bc675e0=""><path d="M100.034 21.1209H113.048C113.658 21.1209 114.065 21.4598 113.929 22.1376L113.184 26.34C115.759 22.6121 119.487 20.3753 123.283 20.3753C125.181 20.3753 127.214 21.1209 128.299 22.1376C128.909 22.7476 128.909 23.0865 128.502 23.6966L124.707 29.0513C124.232 29.7291 123.893 29.6613 123.148 29.3224C122.402 28.9835 121.453 28.7124 120.436 28.7124C115.895 28.7124 112.099 31.6947 110.337 40.7096L107.693 54.3336C107.49 55.2147 106.812 55.4181 106.473 55.4181H99.5598C99.0175 55.4181 98.543 54.9436 98.6786 54.3336L103.83 28.1701L99.492 22.0698C99.1531 21.5954 99.4242 21.1209 100.034 21.1209Z" fill="currentColor"></path><path d="M124.977 37.9984C126.74 27.3567 134.534 20.3753 144.701 20.3753C155.004 20.3753 159.884 28.5768 158.393 37.5239C158.054 39.8284 157.241 41.6585 155.343 41.6585H133.382C133.585 46.6743 137.042 49.0467 141.651 49.0467C144.701 49.0467 147.548 47.8944 149.717 46.471C150.26 46.0643 150.87 45.861 151.276 46.471L153.784 50.4023C154.191 51.0123 153.987 51.419 153.377 51.9612C150.124 54.9436 144.837 56.2992 140.025 56.2992C129.18 56.2992 123.283 48.3011 124.977 37.9984ZM150.531 35.6938C150.87 30.3391 147.209 28.1023 143.685 28.1023C139.076 28.1023 135.483 31.2203 134.128 35.6938H150.531Z" fill="currentColor"></path><path d="M191.199 54.6045L199.062 14.4782L195.198 9.3268C194.995 8.98789 195.266 8.51343 195.741 8.51343H207.806C208.483 8.51343 208.822 8.92011 208.687 9.53014L205.162 27.221C207.873 23.1541 211.94 20.3751 216.685 20.3751C224.276 20.3751 228.614 26.8821 226.988 34.8802L223.056 54.3334C222.921 55.079 222.311 55.4179 221.836 55.4179H214.719C214.041 55.4179 213.703 55.0112 213.838 54.3334L217.363 36.7781C218.312 32.0334 217.024 29.1188 214.109 29.1188C208.687 29.1188 204.417 35.2191 202.586 43.8273L200.282 54.6045C200.214 55.0112 199.875 55.4179 199.401 55.4179H191.877C191.47 55.4179 191.131 55.0112 191.199 54.6045Z" fill="currentColor"></path><path d="M229.428 38.4051C231.19 27.0856 239.188 20.3753 248.542 20.3753C253.49 20.3753 257.353 22.6121 258.845 26.34L259.658 22.2054C259.794 21.4598 260.336 21.1209 260.946 21.1209H267.521C268.266 21.1209 268.537 21.5954 268.402 22.2054L262.098 54.4014C261.963 55.0114 261.556 55.4181 260.81 55.4181H254.168C253.558 55.4181 253.219 55.0792 253.354 54.4014L253.964 51.0801C250.847 54.6047 246.983 56.367 242.781 56.367C233.223 56.367 227.869 48.4366 229.428 38.4051ZM245.492 48.1655C250.982 48.1655 255.049 43.5564 255.862 38.1339C256.676 32.7114 253.761 28.6446 248.678 28.6446C243.255 28.6446 239.324 33.0503 238.443 38.2017C237.561 43.4208 240.205 48.1655 245.492 48.1655Z" fill="currentColor"></path><path d="M266.369 54.3336L272.74 22.002C272.876 21.4598 273.147 21.1209 273.554 21.1209H280.738C281.349 21.1209 281.755 21.4598 281.62 22.1376L280.874 26.34C283.45 22.6121 287.178 20.3753 290.973 20.3753C292.871 20.3753 294.905 21.1209 295.989 22.1376C296.599 22.7476 296.599 23.0865 296.193 23.6966L292.397 29.0513C291.922 29.7291 291.583 29.6613 290.838 29.3224C290.092 28.9835 289.143 28.7124 288.127 28.7124C283.585 28.7124 279.79 31.6947 278.027 40.7096L275.384 54.3336C275.18 55.2147 274.503 55.4181 274.164 55.4181H267.25C266.708 55.4181 266.233 54.9436 266.369 54.3336Z" fill="currentColor"></path><path d="M290.024 65.2463C289.618 64.9074 289.618 64.3652 289.889 63.8907L293.074 58.8749C293.413 58.3327 293.956 58.1971 294.362 58.536C297.48 60.5016 300.53 61.7217 304.258 61.7217C310.765 61.7217 316.188 59.0783 318.086 50.3345C314.493 53.7236 311.172 55.3503 306.156 55.3503C296.328 55.3503 291.177 47.081 292.803 37.8628C294.633 27.4245 302.428 20.3753 312.257 20.3753C317.679 20.3753 321.407 23.4254 322.559 25.9333L323.373 22.2054C323.508 21.4598 323.983 21.1209 324.525 21.1209H331.167C331.845 21.1209 332.184 21.5276 332.049 22.2054L326.491 50.5378C324.05 62.874 315.51 69.3132 303.919 69.3132C299.039 69.3132 293.549 68.0931 290.024 65.2463ZM308.732 47.4199C314.222 47.4199 318.289 43.0142 319.102 37.795C319.916 32.5759 317.001 28.6446 311.918 28.6446C306.495 28.6446 302.564 32.9148 301.683 37.8628C300.802 42.8786 303.445 47.4199 308.732 47.4199Z" fill="currentColor"></path><path d="M332.32 37.9984C334.082 27.3567 341.877 20.3753 352.044 20.3753C362.347 20.3753 367.227 28.5768 365.736 37.5239C365.397 39.8284 364.584 41.6585 362.686 41.6585H340.725C340.928 46.6743 344.385 49.0467 348.994 49.0467C352.044 49.0467 354.891 47.8944 357.06 46.471C357.602 46.0643 358.212 45.861 358.619 46.471L361.127 50.4023C361.533 51.0123 361.33 51.419 360.72 51.9612C357.467 54.9436 352.18 56.2992 347.367 56.2992C336.522 56.2992 330.625 48.3011 332.32 37.9984ZM357.873 35.6938C358.212 30.3391 354.552 28.1023 351.027 28.1023C346.418 28.1023 342.826 31.2203 341.47 35.6938H357.873Z" fill="currentColor"></path><path d="M176.04 56.367C180.581 56.367 185.054 55.0792 189.121 51.2157C189.731 50.6734 189.799 49.9278 189.392 49.5211L185.664 45.3865C185.326 44.9798 184.783 44.9798 184.309 45.3187C182.75 46.471 180.242 47.8266 177.26 47.8266C171.905 47.8266 168.923 43.6242 169.6 38.3373C170.278 33.1181 174.413 28.9157 179.632 28.9157C182.479 28.9157 184.309 29.9324 186.342 31.9659C186.885 32.5081 187.223 32.5081 187.833 32.0336L192.646 27.899C193.12 27.4923 193.256 27.0178 192.917 26.4756C190.002 22.341 185.461 20.3753 180.445 20.3753C170.346 20.3753 162.144 27.899 160.789 37.8628C159.298 48.7078 166.482 56.367 176.04 56.367Z" fill="currentColor"></path></svg></a></div></div></div></div></div></div>
+                                          
+                                          
+                                          <input type="hidden" name="form_type" value="product"><input type="hidden" name="utf8" value="✓"><input type="hidden" name="id" value="{{variant.id}}">
+  
+      <div class="v-stack gap-4"><buy-buttons class="buy-buttons dinamic-1 " template="eddie-template" form="product-form-{{product.id}}-template--19939687825687__main">
+                  <button type="submit" class="button w-full"  {% if product.handle == 'eddie-by-giddy' %} onclick="goToCheckout()" {%endif%} style="display:block!important;width: 100%;">GET EDDIE</button>
+    </buy-buttons>
+      </div></form>
+                      </div>
+                   
+                    {% endif %}
+                  {% endfor %}
+
+                  {%endif%}
+                 
+
+
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          {% include 'quiz-script' %}
+        {% else %}
+          <style>
+            .buy-buttons > .button {
+              width: 276px;
+              height: 50px;
+              border-radius: 8px;
+              box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+              font-size: 21px;
+              line-height: 23px;
+              letter-spacing: 1px;
+              margin-left: 148px !important;
+              margin-top: -59px !important;
+            }
+          </style>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% if product.handle == 'eddie-by-giddy' %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  function goToCheckout() {
+    setTimeout(function() {
+      window.location.href = '/checkout'
+    }, 300);
+  }
+
+</script>
+<script>
+
+</script>
+{%endif%}
+
+
+{% schema %}
+  {
+    "name": "Quiz Size PDP",
+    "class": "section",
+    "disabled_on": {
+      "groups": ["header", "footer"]
+    },
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "quiz",
+        "label": "Quiz enable",
+        "default": true,
+        "info": "Find your Size Quiz"
+      }, {
+        "type": "text",
+        "id": "quiz-enable",
+        "label": "Quiz enable metafield",
+        "default": "false",
+        "info": "True or False Metafield enabled"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "method",
+        "name": "choose method",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "placeholder": "Choose a title",
+            "default": "Choose a method to find your size.",
+            "label": "Choose a title",
+            "info": "Choose a title Option 1"
+          },
+          {
+            "type": "text",
+            "id": "flacid-option",
+            "placeholder": "Flaccid sizing",
+            "default": "Flaccid sizing",
+            "label": "Method Option 1",
+            "info": "Flaccid sizing option"
+          },
+          {
+            "type": "text",
+            "id": "flacid-option-description",
+            "placeholder": "Flaccid sizing",
+            "default": "Measure your penis while flaccid/soft",
+            "label": "Method Option Description 1",
+            "info": "Flaccid sizing option"
+          },
+          {
+            "type": "text",
+            "id": "erect-option",
+            "placeholder": "Erect sizing",
+            "default": "Erect sizing",
+            "label": "Method Option 2",
+            "info": "Erect sizing option"
+          }, {
+            "type": "text",
+            "id": "erect-option-description",
+            "placeholder": "Erect sizing",
+            "default": "Measure your penis while erect/hard",
+            "label": "Method Option Description 2",
+            "info": "Erect sizing option"
+          }, {
+            "type": "text",
+            "id": "condom-option",
+            "placeholder": "Erect sizing",
+            "default": "Condom sizing",
+            "label": "Method Option 3",
+            "info": "Erect sizing option"
+          }, {
+            "type": "text",
+            "id": "condom-option-description",
+            "placeholder": "Erect sizing",
+            "default": "Find you Eddie size based on condom size",
+            "label": "Method Option Description 3",
+            "info": "Erect sizing option"
+          }
+        ]
+      },
+      {
+        "type": "flaccid",
+        "name": "flaccid sizing",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "placeholder": "Choose a title",
+            "default": "Measure the girth of your penis while it's flaccid/soft.",
+            "label": "Choose a title",
+            "info": "Choose a title Option 2"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "placeholder": "Choose a subtitle",
+            "default": "Wrap a tape measure around the base of the shaft, where Eddie will be worn. Select your results in inches or centimeters below.",
+            "label": "Choose a subtitle",
+            "info": "Choose a title Option 2"
+          },
+          {
+            "type": "text",
+            "id": "option-A",
+            "placeholder": "0  -  3 1/2”",
+            "default": "0  -  3 1/2”",
+            "label": "option A inches",
+            "info": "option A inches"
+          },
+          {
+            "type": "text",
+            "id": "option-A-cm",
+            "placeholder": "0  -  9.1cm",
+            "default": "0  -  9.1cm",
+            "label": "option A cm",
+            "info": "option A cm"
+          }, {
+            "type": "text",
+            "id": "option-B",
+            "placeholder": "3 1/2  -  4”",
+            "default": "3 1/2  -  4”",
+            "label": "option B inches",
+            "info": "option B inches"
+          }, {
+            "type": "text",
+            "id": "option-B-cm",
+            "placeholder": "9.2 - 9.9cm",
+            "default": "9.2 - 9.9cm",
+            "label": "option B cm",
+            "info": "option B cm"
+          }, {
+            "type": "text",
+            "id": "option-C",
+            "placeholder": "4  -  4 1/4”",
+            "default": "4  -  4 1/4”",
+            "label": "option C inches",
+            "info": "option C inches"
+          }, {
+            "type": "text",
+            "id": "option-C-cm",
+            "placeholder": "10 - 10.7cm",
+            "default": "10 - 10.7cm",
+            "label": "option C cm",
+            "info": "option C cm"
+          }, {
+            "type": "text",
+            "id": "option-D",
+            "placeholder": "4 1/4 ” +",
+            "default": "4 1/4 ” +",
+            "label": "option D inches",
+            "info": "option D inches"
+          }, {
+            "type": "text",
+            "id": "option-D-cm",
+            "placeholder": "10.8cm +",
+            "default": "10.8cm +",
+            "label": "option D cm",
+            "info": "option D cm"
+          }
+        ]
+      },
+      {
+        "type": "erect",
+        "name": "erect sizing",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "placeholder": "Choose a title",
+            "default": "Measure the girth of your penis while it's erect/hard.",
+            "label": "Choose a title",
+            "info": "Choose a title Option 2"
+          },
+          {
+            "type": "text",
+            "id": "subtitle",
+            "placeholder": "Choose a subtitle",
+            "default": "Wrap a tape measure around the base of the shaft, where Eddie will be worn. Select your results in inches or centimeters below.",
+            "label": "Choose a subtitle",
+            "info": "Choose a title Option 2"
+          },
+          {
+            "type": "text",
+            "id": "option-A",
+            "placeholder": "0  -  4 1/2”",
+            "default": "0  -  4 1/2”",
+            "label": "option A inches",
+            "info": "option A inches"
+          },
+          {
+            "type": "text",
+            "id": "option-A-cm",
+            "placeholder": "0  -  11.4cm",
+            "default": "0  -  11.4cm",
+            "label": "option A cm",
+            "info": "option A cm"
+          }, {
+            "type": "text",
+            "id": "option-B",
+            "placeholder": "4 1/2  -  5”",
+            "default": "4 1/2  -  5”",
+            "label": "option B inches",
+            "info": "option B inches"
+          }, {
+            "type": "text",
+            "id": "option-B-cm",
+            "placeholder": "11.5 - 12.4cm",
+            "default": "9.2 - 9.9cm",
+            "label": "option B cm",
+            "info": "option B cm"
+          }, {
+            "type": "text",
+            "id": "option-C",
+            "placeholder": "5  -  5 1/4”",
+            "default": "5  -  5 1/4”",
+            "label": "option C inches",
+            "info": "option C inches"
+          }, {
+            "type": "text",
+            "id": "option-C-cm",
+            "placeholder": "12.5 - 13.4cm",
+            "default": "12.5 - 13.4cm",
+            "label": "option C cm",
+            "info": "option C cm"
+          }, {
+            "type": "text",
+            "id": "option-D",
+            "placeholder": "5 1/4 ” +",
+            "default": "5 1/4 ” +",
+            "label": "option D inches",
+            "info": "option D inches"
+          }, {
+            "type": "text",
+            "id": "option-D-cm",
+            "placeholder": "13.5cm +",
+            "default": "13.5cm +",
+            "label": "option D cm",
+            "info": "option D cm"
+          }
+        ]
+      },
+      {
+        "type": "condom",
+        "name": "condom sizing",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "placeholder": "Choose a title",
+            "default": "Select your condom fit.",
+            "label": "Choose a title",
+            "info": "Choose a title Option 1"
+          },
+          {
+            "type": "text",
+            "id": "flacid-option",
+            "placeholder": "Snug condom",
+            "default": "Snug condom",
+            "label": "Snug condom Option 1",
+            "info": "Snug condom option"
+          },
+          {
+            "type": "text",
+            "id": "flacid-option-description",
+            "placeholder": "Snug condom sizing",
+            "default": "Lifestyles Snugger Fit, Slim Fit, or similar",
+            "label": "Snug condom Option Description 1",
+            "info": "Snug condom sizing option"
+          },
+          {
+            "type": "text",
+            "id": "erect-option",
+            "placeholder": "Medium-snug condom sizing",
+            "default": "Medium-snug condom",
+            "label": "Medium-snug condom Option 2",
+            "info": "Medium-snug condomt sizing option"
+          }, {
+            "type": "text",
+            "id": "erect-option-description",
+            "placeholder": "Erect sizing",
+            "default": "Trojan Ecstasy, Durex Pleasure Me",
+            "label": "Method Option Description 2",
+            "info": "Medium-snug sizing option"
+          }, {
+            "type": "text",
+            "id": "condom-option",
+            "placeholder": "Regular condom",
+            "default": "Regular condom",
+            "label": "Regular condom Option 3",
+            "info": "Regular condom sizing option"
+          }, {
+            "type": "text",
+            "id": "condom-option-description",
+            "placeholder": "Durex Performax Intense, Trojan ENZ",
+            "default": "Durex Performax Intense, Trojan ENZ",
+            "label": "Regular condom Option Description 3",
+            "info": "Regular condom sizing option"
+          }, {
+            "type": "text",
+            "id": "large-option",
+            "placeholder": "Large condom sizing",
+            "default": "Large condom",
+            "label": "Large condom Option 4",
+            "info": "Erect sizing option"
+          }, {
+            "type": "text",
+            "id": "large-option-description",
+            "placeholder": "Large sizing",
+            "default": "Trojan Magnum, Durex XXL, or similar",
+            "label": "Large Option Description 4",
+            "info": "Erect sizing option"
+          }
+        ]
+      }, {
+        "type": "size",
+        "name": "recommend size",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "placeholder": "We recommend size:",
+            "default": "We recommend size:",
+            "label": "We recommend size:",
+            "info": "We recommend size:"
+          }, {
+            "type": "image_picker",
+            "id": "eddie-img",
+            "label": "Eddie Image:",
+            "info": "Eddie Image"
+          }, {
+            "type": "text",
+            "id": "description",
+            "placeholder": "Giddy provides free resizes with all orders as many times as you need.",
+            "default": "Giddy provides free resizes with all orders as many times as you need.",
+            "label": "Description",
+            "info": "Giddy provides free resizes with all orders as many times as you need."
+          }, {
+            "type": "text",
+            "id": "btn-select",
+            "placeholder": "USE THIS SIZE",
+            "default": "USE THIS SIZE",
+            "label": "USE THIS SIZE BTN",
+            "info": "USE THIS SIZE"
+          }
+        ]
+      }
+    ],
+
+    "presets": [
+      {
+        "name": "Quiz Size PDP"
+      }
+    ]
+  }
+{% endschema %}

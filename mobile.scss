@@ -1,0 +1,640 @@
+@media (max-width:450px) {
+    .open-quiz-modal {
+        height: 50px;
+        position: relative;
+        top: -28px;
+        left: 146px!important;
+    }
+    #eddie>canvas {
+        width: 300px!important;
+        height: 300px!important;
+    }
+    .product-info  {
+        padding-top: 6px;
+    }
+    .container-iframe {
+        margin-bottom: -70px;
+    }
+    .product-gallery__media > img {
+        height: 300px!important;
+        object-fit: cover;
+    }
+    .scroll-area {
+        max-height: 299px!important;
+    }
+}
+
+@media (max-width:750px) {
+    .product-info__block-item >.product-title {
+        font-size: 40px;
+    }
+    .product-sticky-bar__info >  .open-quiz-modal {
+    left: 8px!important;
+    top: 2px!important;
+    }
+    .header__logo {
+        grid-area: primary-nav;
+    }
+    .mobile-hamburger {
+        position: relative;
+    top: -19px;
+    background: #fff;
+    height: 41px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    }
+    .header__primary-nav  {
+        position: relative;
+    left: 48px;
+    top: -11px;
+    margin-bottom: -38px;
+    }
+    .page-dots>* {
+        width: 16px;
+    height: 4px;
+    border-radius: 16px;
+    place-content: center;
+    display: grid;
+    background: #E9E9E9;
+    }
+    .page-dots>*:after {
+        background: #E9E9E9;
+    }
+    .page-dots>[aria-current="true"] {
+        width: 40px;
+    }
+    .page-dots>[aria-current="true"]:after {
+        background: #161c45;
+    }
+    body {
+        background: #fff;
+    }
+    .h-stack>legend {
+        color: #282828;
+        font-size: 18px;
+        line-height: 26px;
+        position: relative;
+        top: -5px;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    .block-swatch {
+        width: 76px;
+    height: 44px;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid #E9E9E9;
+    }
+    .block-swatch.is-selected, :checked+.block-swatch {
+        border-radius: 8px;
+        color: #282828!important;
+        background: #C5E7E8!important;
+        border: none!important;
+    }
+    .buy-buttons>.button {
+        width: 215px;
+    border-radius: 8px;
+    background: linear-gradient(180deg,hsla(0,0%,100%,.2),hsla(0,0%,100%,0)),#161c45;
+    }
+    .pdp--6 {
+        display:none!important;
+    }
+    .pdp--7 {
+        display:block!important;
+    }
+    .slider-section-pdp {
+        background: linear-gradient(0deg, #161C45 0%, #161C45 100%), #161C45;
+    }
+    .quote-slide {
+        color: #fff;
+    font-size: 20px;
+    line-height: 26px;
+    max-width: 320px;
+    margin: 0 auto;
+    }
+    .quote-slide>span {
+        font-size: 20px;
+    line-height: 26px;
+    }
+    .swiper-button-prev,.swiper-button-next {
+        display: none!important;
+    }
+    .swiper-pagination-bullet-active {
+        width: 41px!important;
+    height: 4px!important;
+    border-radius: 26px!important;
+    background: #fff!important;
+    }
+    .faq__content {
+        background-color: transparent;
+    }
+    .faq-container {
+        grid-template-columns: 1fr;
+    }
+    .link-btns {
+        display: flex;
+        width: 390px;
+        position: static;
+        top: 80px;
+        margin: 0 auto;
+        gap: 0px!important;
+        padding-left: 12px;
+        margin: 0 auto;
+    }
+    .how-it-work-section-science{
+        height: 1117px;
+    }
+    .block-right {
+        grid-row: 1;
+    }
+    .image-scroll-3 {
+        left: 0px;
+    }
+    .science-container-block {
+        grid-template-columns: 1fr;
+        gap: 0px;
+    }
+    .gap-2\.5 {
+        gap: 14px!important;
+    }
+    .position-quiz-open {
+        height: 120vh;
+    }
+    .close-btn-quiz>svg {
+        width: 50px;
+        height: 50px;
+    }
+    .prev-quiz>svg {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width:360px) {
+    .open-quiz-modal {
+       
+        height: 50px;
+        position: relative;
+        top: -28px;
+        left: 146px!important;
+    }
+}
+@media (max-width:320px) {
+    .open-quiz-modal {
+        
+        height: 50px;
+        position: relative;
+        top: -28px;
+        left: 137px!important;
+        font-size: 17px;
+    }
+}
+
+
+@media (min-width:769px) {
+    .pdp--6 {
+        display:block!important;
+    }
+    .pdp--7 {
+        display:none!important;
+    }
+    .swiper-button-prev,.swiper-button-next {
+        display: none!important;
+    }
+   
+}
+
+@media (min-width:760px) and (max-width:999px) {
+    .header__primary-nav  {
+        display:none!important;
+    }
+}
+
+@media (min-width:1001px) {
+    .pdp-scroll-section {
+        display: none;
+    }
+    .science-btns {
+        margin-top: 11px;
+        margin-bottom: 0px;
+    }
+}
+
+.pdp-scroll-section {
+    height: 1600px;
+    position: relative;
+}
+
+@media (max-width:1000px) {
+.science-btns {
+    margin-top: 25px;
+    margin-bottom: 39px;
+}
+
+    #shopify-section-template--19520815628567__6bcc8abe-dd69-48a6-b02b-df88641c0742 {
+        display: none;
+    }
+    .block-scroll-1 {
+        padding-top: 70px;
+    }
+}
+.position-two {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 999999;
+}
+
+.section-container-block {
+  background-color: #f8f8f8;
+}
+@media (min-width:750px) {
+    
+    .section-container-block {
+      position: relative;
+      height: 56vw;
+      z-index: 9999;
+    }
+    .position-one {
+        position: sticky;
+        top: 0;
+    }
+    #shopify-section-template--19520815628567__6bcc8abe-dd69-48a6-b02b-df88641c0742 {
+        position: relative;
+    z-index: 99999;
+    }
+    
+   
+}
+@media (min-width:1001px) {
+    .link-btns {
+        position: initial!important;
+    }
+    .product-info__block-list > .pdp--8 {
+        display:none!important;
+     }
+}
+
+@media (max-width:749px) {
+    .pdp-box-section {
+        display: none;
+    }
+    .how-it-work-section-science {
+        height: auto!important;
+        padding-bottom: 54px;
+    }
+    .image-scroll, .scroll-text {
+        position: relative;
+    margin-left: -18px;
+    }
+    .image-scroll-3 {
+        width: 90vw;
+    }
+    
+    .block-right {
+        overflow: hidden;
+        padding-bottom: 9px;
+    }
+    .eddie-image{
+        margin-left: 134px;
+    }
+    .product-sticky-bar.is-visible {
+        background: #fff;
+    }
+   
+    #shopify-section-template--19520815628567__29762c4b-7925-45c9-83dd-ec5e995a9132 {
+        position: relative;
+        z-index: 9999;
+    }
+    #shopify-section-template--19520815628567__833d5b18-378c-429c-9b41-18d3377c438b {
+        position: relative;
+    }
+    #shopify-section-template--19474124636439__29762c4b-7925-45c9-83dd-ec5e995a9132 {
+        position: relative;
+        z-index: 9999;
+    }
+
+
+    .block-scroll-1 {
+        width: 100%;
+    margin: 0 auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    }
+    .section-container-block {
+        position: relative;
+        height: 756px;
+    }
+    .position-one {
+        position: sticky;
+        top: 0px;
+    }
+    .position-two {
+        position: absolute;
+    }
+    .work-video {
+        height: 817px!important;
+    }
+    .product-info__block-list > .pdp--8 {
+        display:none!important
+    }
+    .icon-mobile-account {
+        position: absolute;
+    top: 16px;
+    background: #fff;
+    }
+   
+}
+@media (min-width:744px) {
+    .icon-mobile-account {
+       display: none!important;
+    }
+}
+
+@media (min-width:451px) and (max-width:1000px) {
+    .product-gallery__media {
+        height: 530px!important;
+    }
+    .product-gallery__media > img {
+        height: 600px!important;
+    width: 600px!important;
+    margin: 0 auto!important;
+    object-fit: contain;
+    }
+}
+
+@media (min-width:451px) and (max-width:600px) {
+    #eddie>canvas {
+        width: 500px!important;
+        height: 500px!important;
+    }
+}
+@media (min-width:601px) and (max-width:1170px) {
+    #eddie>canvas {
+        width: 550px!important;
+        height: 550px!important;
+    }
+}
+@media (min-width:743px) and (max-width:1000px) {
+ .responsive-iframe {
+    width: 93%!important;
+ }   
+ .product {
+    margin-top: 76px;
+ }
+ .product-info__block-item>.product-title {
+    font-size: 40px;
+ }
+ .product-info__block-item>.prose>p {
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+ }
+ .buy-buttons>.button {
+    position: relative;
+    left: 10px;
+ }
+
+ .science-container-block>.block-right {
+    transform: scale(1.2);
+    position: relative;
+    left: 103px;
+
+ }
+ .how-it-work-section-science {
+    display: block;
+    overflow: hidden;
+ }
+ .how-it-work-container-science > .link-btns {
+    margin: -46px auto 114px!important;
+ }
+ .position-one {
+    position: sticky;
+}
+.tooltip .tooltiptext {
+    bottom: -65px;
+    margin-left: -374px;
+}
+.pdp-scroll-section {
+    z-index: 9999;
+}
+
+.link-btns {
+    position: static!important;
+}
+.quote-slide, .quote-slide>span {
+    font-size: 24px!important;
+    line-height: 30px!important;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.faq-container {
+    grid-template-columns: 1fr;
+}
+
+}
+
+@media (min-width:750px) and (max-width:1000px) {
+    .product-info__block-list > .pdp--6 {
+        display:none!important;
+     }
+     .product-info__block-list > .pdp--7 {
+        display:none!important;
+     }
+     .product-info__block-list > .pdp--8 {
+        height: 100px;
+        margin-top: 66px;
+        margin-bottom: 20px;
+     }
+     .product-info__block-list > .pdp--8 > img {
+        width: 664px!important;
+        position: absolute;
+        left: 8%;
+     }
+     .eddie-image-quiz {
+        height: 166px;
+     }
+}
+
+
+@media (max-width:1000px) {
+    .container-iframe {
+        position: relative;
+        left: 0px;
+    }
+    .responsive-iframe {
+        position: relative;
+        left: 0px;
+        height: 470px;
+        width: 100%!important;
+    }
+    .accordion__content {
+        padding-inline-end: 0!important;
+    }
+    .faq__content {
+        padding: 9px 0% 2% 1%!important;
+    }
+    .section-stack {
+        gap: 32px!important;
+    }
+    .how-it-work-section-reviews {
+        display: block;
+        padding-top: 10px;
+    }
+    .jdgm-rev-widg__reviews {
+        grid-template-columns: 1fr!important;
+    }
+    
+}
+@media (max-width:749px) {
+    .desktop-video {
+       display:none;
+    }
+    .mobile-video {
+        display:block;
+        object-fit: cover!important;
+     }
+}
+@media (min-width:750px) {
+    .desktop-video {
+       display:block;
+    }
+    .mobile-video {
+        display:none;
+     }
+}
+
+@media (max-width:361px) {
+    .progres-one > svg {
+        width: 300px;
+        margin: 0 auto;
+    }
+    .progres-two > svg {
+        width: 300px;
+        margin: 0 auto;
+    }
+    .progres-three > svg {
+        width: 300px;
+        margin: 0 auto;
+    }
+    .quiz-container-nav {
+        width: 300px;
+    margin: 0 auto;
+    }
+    .quiz-title {
+        color: var(--neutrals-charcoal,#282828);
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    padding-top: 14px;
+    padding-bottom: 11px;
+    width: 300px;
+    margin: 0 auto;
+    }
+    .button-quiz-size {
+        width: 91%;
+    padding: 11px;
+    border: 1px solid #e9e9e9;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 25px 1fr;
+    gap: 24px;
+    margin-bottom: 12px!important;
+    margin: 0 auto;
+    }
+    .quiz-subtitle {
+        color: var(--neutrals-charcoal,#282828);
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    padding-bottom: 13px;
+    margin-top: -24px;
+    width: 300px;
+    margin: 0 auto;
+    }
+    .switch-container, .switch-container-2 {
+        width: 320px;
+    }
+    .cm-container,.cm-container-2 {
+        position: absolute;
+    top: 167px;
+    right: 0;
+    width: 95%;
+    }
+    .eddie-image-quiz {
+        height: 77px;
+    }
+    .button-quiz-select-variant, .description-quiz-recomend {
+        text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    line-height: normal;
+    width: 300px;
+    margin: 0 auto;
+    padding-bottom: 12px;
+    padding-top: 12px;
+    }
+    .modal-btn {
+        width: 91%!important;
+    margin: 0 auto!important;
+    }
+    .quiz-title-final {
+        font-size: 21px;
+        margin-bottom: 0;
+        padding-bottom: 3px;
+    }
+    .recemend-size {
+        font-size: 44px;
+    }
+}
+
+@media(max-width:744px) {
+    .mobile-progress {
+      display: block !important;
+    }
+    .tablet-progress {
+      display: none !important;
+    }
+    .container-questions-grid > div {
+        padding-right: 10px;
+      }
+      .cm-container,.cm-container-2 {
+        top: 296px;
+      }  
+  }
+  @media(min-width:745px) {
+    .mobile-progress {
+      display: none !important;
+    }
+    .tablet-progress {
+      display: block !important;
+    }
+    .container-questions-grid > div {
+      width: 664px;
+      padding-right: 10px;
+    }
+    #choose-size,
+    #condom-1,
+    #erect-1,
+    #flaccid-1 {
+      left: 100%;
+    }
+    .quiz-container-grid {
+      max-width: 664px;
+      margin: 0 auto;
+    }
+    .tablet-progress,.quiz-navigation {
+        padding-right: 10px;
+    }
+
+  }
